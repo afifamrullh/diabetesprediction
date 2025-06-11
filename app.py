@@ -1,9 +1,11 @@
-
 import streamlit as st
 import numpy as np
 import joblib
 
+#Load Model
 model = joblib.load('diabetes_model.pkl')
+
+#Judul Aplikasi
 st.title("Prediksi Diabetes")
 
 # Form input
@@ -19,13 +21,13 @@ with st.form("form_diabetes"):
   submit = st.form_submit_button("Proses")
 # Ketika tombol ditekan
 if submit:
-# Format input ke bentuk array
+  # Format input ke bentuk array
   features = np.array([[pregnancies, glucose,
-blood_pressure, skin_thickness, insulin, bmi, dpf, age]])
-# Prediksi
+  blood_pressure, skin_thickness, insulin, bmi, dpf, age]])
+  # Prediksi
   prediction = model.predict(features)[0]
-# Tampilkan hasil
- if prediction == 1:
-   st.error("Hasil: Positif Diabetes")
- else:
-   st.success("Hasil: Tidak Diabetes")
+  # Tampilkan hasil
+  if prediction == 1:
+    st.error("Hasil: Positif Diabetes")
+  else:
+    st.success("Hasil: Tidak Diabetes")
