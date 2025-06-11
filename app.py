@@ -21,11 +21,11 @@ with st.form("form_diabetes"):
 if submit:
 # Format input ke bentuk array
   features = np.array([[pregnancies, glucose,
-  blood_pressure, skin_thickness, insulin, bmi, dpf, age]])
+blood_pressure, skin_thickness, insulin, bmi, dpf, age]])
 # Prediksi
   prediction = model.predict(features)[0]
 # Tampilkan hasil
-if prediction == 1:
-  st.error("Hasil: Positif Diabetes")
-else:
-  st.success("Hasil: Tidak Diabetes")
+  if prediction == 1:
+    st.error("Hasil: Positif Diabetes")
+  else:
+    st.success("Hasil: Tidak Diabetes")
