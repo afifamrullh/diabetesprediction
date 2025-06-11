@@ -3,8 +3,9 @@ import streamlit as st
 import numpy as np
 import joblib
 
-  model = joblib.load('diabetes_model.pkl')
-  st.title("Prediksi Diabetes")
+model = joblib.load('diabetes_model.pkl')
+st.title("Prediksi Diabetes")
+
 # Form input
 with st.form("form_diabetes"):
   pregnancies = st.number_input('Pregnancies', min_value=0, max_value=20, step=1)
